@@ -6,9 +6,9 @@ function BurgerIngredients({  }) {
   const [current, setCurrent] = useState('bun');
 
   return (
-    <section>
-      <h1 className="text text_type_main-medium">Соберите бургер</h1>
-        <ul className={styles.list}>
+    <section className="pt-10">
+      <h1 className="text text_type_main-medium mb-5">Соберите бургер</h1>
+        <ul className={`${styles.list} mb-10`}>
           <li>
             <Tab value="bun" active={current === 'bun'} onClick={setCurrent}>
               Булки
