@@ -1,0 +1,7 @@
+.link {
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
