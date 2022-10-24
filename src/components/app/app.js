@@ -5,7 +5,7 @@ import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import styles from './app.module.css';
 
 function App() {
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState(null);
 
   useEffect(() => {
     getIngredients()
@@ -17,7 +17,7 @@ function App() {
     <div className={styles.app}>
       <AppHeader />
       <main className={styles.main}>
-        <BurgerIngredients />
+        {ingredients && <BurgerIngredients ingredients={ingredients.data} />}
 
       </main>
     </div>
