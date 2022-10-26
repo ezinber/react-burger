@@ -3,6 +3,8 @@ import { getIngredients } from '../../utils/api';
 import AppHeader from '../app-header/app-header';
 import BurgerConstructor from '../burger-constructor/burger-construcor';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
+import ModalOverlay from '../modal-overlay/modal-overlay';
+import Modal from '../modal/modal';
 import styles from './app.module.css';
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
           <BurgerIngredients data={ingredients.data} />
           <BurgerConstructor data={ingredients.data} />
         </>)}
-
+        <ModalOverlay children={<Modal />} />
       </main>
     </div>
   )
