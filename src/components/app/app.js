@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getIngredients } from '../../utils/api';
 import AppHeader from '../app-header/app-header';
+import BurgerConstructor from '../burger-constructor/burger-construcor';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import styles from './app.module.css';
 
@@ -17,7 +18,10 @@ function App() {
     <div className={styles.app}>
       <AppHeader />
       <main className={styles.main}>
-        {ingredients && <BurgerIngredients ingredients={ingredients.data} />}
+        {ingredients && (<>
+          <BurgerIngredients data={ingredients.data} />
+          <BurgerConstructor data={ingredients.data} />
+        </>)}
 
       </main>
     </div>

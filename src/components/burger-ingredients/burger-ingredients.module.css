@@ -1,11 +1,13 @@
 .section {
   width: 600px;
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .list {
   margin: 0;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   list-style: none;
 }
@@ -13,4 +15,7 @@
 .column_list {
   composes: list;
   flex-direction: column;
+  overflow-y: scroll;
+  /* flex-grow: 1;
+  flex-basis: 0; */
 }
