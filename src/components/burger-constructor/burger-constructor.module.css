@@ -1,4 +1,5 @@
 .section {
+  --scroll-width: 8px;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -7,7 +8,8 @@
 
 .list {
   width: 100%;
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0;
   display: flex;
   list-style: none;
@@ -21,4 +23,28 @@
   flex-basis: 0;
   display: flex;
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.inner_list_wrapper > .list > li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: calc(100% + var(--scroll-width));
+}
+
+.inner_list_wrapper::-webkit-scrollbar {
+  width: var(--scroll-width);
+  background-color: #2F2F37;
+}
+
+.inner_list_wrapper::-webkit-scrollbar-thumb {
+  position: absolute;
+  background-color: #8585AD;
+}
+
+.button_wrapper {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }

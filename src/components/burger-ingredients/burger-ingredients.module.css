@@ -1,4 +1,5 @@
 .section {
+  --scroll-width: 8px;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -16,6 +17,22 @@
   composes: list;
   flex-direction: column;
   overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
   /* flex-grow: 1;
   flex-basis: 0; */
+}
+
+.column_list > li {
+  width: calc(100% + var(--scroll-width));
+}
+
+.column_list::-webkit-scrollbar {
+  width: var(--scroll-width);
+  background-color: #2F2F37;
+}
+
+.column_list::-webkit-scrollbar-thumb {
+  position: absolute;
+  background-color: #8585AD;
 }
