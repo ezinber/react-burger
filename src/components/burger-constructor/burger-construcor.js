@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './burger-constructor.module.css';
+import Modal from '../modal/modal';
+import OrderDetails from '../order-details/order-details';
 
 function BurgerConstructor({ data }) {
   const [ingredients, setIngredients] = useState([]);
   const [bun, setBun] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalStateSwitch = () => setIsModalOpen(!isModalOpen);
 
   useEffect(() => {
     setIngredients(data.filter(i => i.type !== 'bun'));
@@ -58,10 +63,15 @@ function BurgerConstructor({ data }) {
             <CurrencyIcon type="primary" />
           </span>
         </p>
-        <Button type="primary" size="large">
+        <Button type="primary" size="large" onClick={handleModalStateSwitch}>
           Оформить заказ
         </Button>
       </div>
+      {isModalOpen && (
+        <Modal title="Детали ингредиента" onClose={handleModalStateSwitch}>
+          <OrderDetails />
+        </Modal>
+      )}
     </section>
   )
 }

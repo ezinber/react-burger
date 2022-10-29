@@ -25,13 +25,6 @@ function App() {
         {ingredients && (<>
           <BurgerIngredients data={ingredients} />
           <BurgerConstructor data={ingredients} />
-
-          <ModalOverlay>
-            <Modal title="Детали ингредиента">
-              {/* <OrderDetails /> */}
-              <IngredientDetails data={ingredients[0]} />
-            </Modal>
-          </ModalOverlay>
         </>)}
       </main>
     </div>
