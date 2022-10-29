@@ -3,6 +3,7 @@ import { getIngredients } from '../../utils/api';
 import AppHeader from '../app-header/app-header';
 import BurgerConstructor from '../burger-constructor/burger-construcor';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
+import IngredientDetails from '../ingredient-details/ingredient-details';
 import ModalOverlay from '../modal-overlay/modal-overlay';
 import Modal from '../modal/modal';
 import styles from './app.module.css';
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     getIngredients()
-      .then((res) => setIngredients(res))
+      .then((res) => setIngredients(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -21,10 +22,15 @@ function App() {
       <AppHeader />
       <main className={styles.main}>
         {ingredients && (<>
-          <BurgerIngredients data={ingredients.data} />
-          <BurgerConstructor data={ingredients.data} />
+          <BurgerIngredients data={ingredients} />
+          <BurgerConstructor data={ingredients} />
+
+          <ModalOverlay>
+            <Modal>
+              <IngredientDetails data={ingredients[0]} />
+            </Modal>
+          </ModalOverlay>
         </>)}
-        <ModalOverlay children={<Modal />} />
       </main>
     </div>
   )
