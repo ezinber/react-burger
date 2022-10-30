@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import IngredientCard from '../ingredient-card/ingredient-card';
 import styles from './ingredients-set.module.css';
 
 function IngredientsSet({ ingredients, title, handleClick }) {
-
-
   return (
     <>
       <h2 className="text text_type_main-medium mb-6">{title}</h2>
@@ -28,4 +26,4 @@ IngredientsSet.propTypes = {
   handleClick: PropTypes.func,
 };
 
-export default IngredientsSet;
+export default memo(IngredientsSet);

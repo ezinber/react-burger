@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './burger-ingredients.module.css';
@@ -13,7 +13,10 @@ function BurgerIngredients({ data }) {
   const [main, setMain] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState(null);
 
-  const handleIngredientClick = (ingredient) => setSelectedIngredient(ingredient);
+  const handleIngredientClick = useCallback((ingredient) => {
+    setSelectedIngredient(ingredient)
+  }, []);
+
   const handleModalClose = () => setSelectedIngredient(null);
 
   useEffect(() => {
