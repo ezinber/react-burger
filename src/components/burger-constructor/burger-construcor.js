@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, ConstructorElement, CurrencyIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import PropTypes from 'prop-types';
+import {
+  Button,
+  ConstructorElement,
+  CurrencyIcon,
+  DragIcon
+} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './burger-constructor.module.css';
 import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
@@ -74,6 +80,10 @@ function BurgerConstructor({ data }) {
       )}
     </section>
   )
-}
+};
+
+BurgerConstructor.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default BurgerConstructor;

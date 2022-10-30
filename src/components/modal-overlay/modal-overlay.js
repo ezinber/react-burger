@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import styles from './modal-overlay.module.css';
 
 function ModalOverlay({ children, onClose }) {
@@ -14,5 +15,10 @@ function ModalOverlay({ children, onClose }) {
     </div>
   )
 };
+
+ModalOverlay.propTypes = {
+  children: PropTypes.element.isRequired,
+  onClose: PropTypes.func.isRequired,
+}
 
 export default memo(ModalOverlay);

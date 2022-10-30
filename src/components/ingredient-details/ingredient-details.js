@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './ingredient-details.module.css';
 
 function IngredientDetails({ data }) {
@@ -19,6 +20,10 @@ function IngredientDetails({ data }) {
       </dl>
     </>
   )
-}
+};
+
+IngredientDetails.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default IngredientDetails;

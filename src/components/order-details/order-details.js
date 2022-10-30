@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './order-details.module.css';
 import doneImage from '../../images/done.png';
 
-function OrderDetails({ data }) {
+function OrderDetails({ data = {} }) {
   console.log(data)
   return (
     <>
@@ -12,7 +13,7 @@ function OrderDetails({ data }) {
       <h2 className="text text_type_main-medium mb-15">
         идентификатор заказа
       </h2>
-      <img className="mb-15" src={doneImage} />
+      <img className={`${styles.image} mb-15`} src={doneImage} />
       <p className="text text_type_main-default mb-2">
         Ваш заказ начали готовить
       </p>
@@ -21,6 +22,10 @@ function OrderDetails({ data }) {
       </p>
     </>
   )
-}
+};
+
+OrderDetails.propTypes = {
+  data: PropTypes.object,
+};
 
 export default OrderDetails;

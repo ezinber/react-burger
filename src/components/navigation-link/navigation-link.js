@@ -1,4 +1,5 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import styles from './navigation-link.module.css';
 
 function NavigationLink({ icon, link = '/', text }) {
@@ -10,6 +11,12 @@ function NavigationLink({ icon, link = '/', text }) {
       </p>
     </a>
   )
-}
+};
+
+NavigationLink.propTypes = {
+  icon: PropTypes.string,
+  link: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
 
 export default memo(NavigationLink);

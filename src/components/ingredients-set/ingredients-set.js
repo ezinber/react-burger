@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IngredientCard from '../ingredient-card/ingredient-card';
 import styles from './ingredients-set.module.css';
 
@@ -19,6 +20,12 @@ function IngredientsSet({ ingredients, title, handleClick }) {
       </ul>
     </>
   )
+};
+
+IngredientsSet.propTypes = {
+  ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
+  title: PropTypes.string.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export default IngredientsSet;

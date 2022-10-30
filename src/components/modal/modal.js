@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ModalOverlay from '../modal-overlay/modal-overlay';
@@ -17,5 +18,11 @@ function Modal({ title = '', onClose, children }) {
     </ModalOverlay>
   ), document.getElementById('modal-root'))
 };
+
+Modal.propTypes = {
+  title: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
+}
 
 export default memo(Modal);

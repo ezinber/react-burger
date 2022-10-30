@@ -1,5 +1,6 @@
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import { memo } from 'react';
 import styles from './ingredient-card.module.css';
 
 function IngredientCard({ ingredient, handleClick }) {
@@ -15,6 +16,11 @@ function IngredientCard({ ingredient, handleClick }) {
       <p className="text text_type_main-default  mt-1">{ingredient.name}</p>
     </li>
   )
+};
+
+IngredientCard.propTypes = {
+  ingredient: PropTypes.object.isRequired,
+  handleClick: PropTypes.func,
 }
 
 export default memo(IngredientCard);
