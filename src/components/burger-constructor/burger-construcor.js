@@ -74,7 +74,7 @@ function BurgerConstructor({ data }) {
         </Button>
       </div>
       {isModalOpen && (
-        <Modal title="Детали ингредиента" onClose={handleModalStateSwitch}>
+        <Modal onClose={handleModalStateSwitch}>
           <OrderDetails />
         </Modal>
       )}
